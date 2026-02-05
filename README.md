@@ -50,11 +50,7 @@
 ## 📸 Ảnh màn hình
 
 <p align="center">
-  <img src="screenshots/main.png" alt="Giao diện chính" width="400">
-</p>
-
-<p align="center">
-  <img src="screenshots/remote.png" alt="Màn hình điều khiển từ xa" width="600">
+  <img src="screenshots/Screenshot.png" alt="Giao diện chính" width="500">
 </p>
 
 ## ❓ Câu hỏi thường gặp
