@@ -13,47 +13,46 @@
 - ⌨️ **Điều khiển bàn phím** - Gõ phím, phím tắt hoạt động đầy đủ
 - 🔒 **Bảo mật** - Mỗi phiên có ID và Password riêng, chống tấn công timing
 - 🚀 **Hiệu suất cực cao** - 60 FPS, Binary WebSocket, tối ưu triệt để
+- 🛡️ **Hỗ trợ UAC** - Có thể thấy và điều khiển UAC prompts
 - 🔄 **Tự động kết nối lại** - Khi mất kết nối sẽ tự động thử kết nối lại
-- 🛡️ **Ổn định** - Xử lý UAC, thay đổi độ phân giải, nhiều tình huống edge case
 - 🎨 **Giao diện đẹp** - Thiết kế hiện đại theo phong cách TeamViewer
 
 ## 📥 Tải về
 
 | Phiên bản | Tải về | Kích thước | Ghi chú |
 |-----------|--------|------------|---------|
-| **v1.1.3** (Mới nhất) | [HiViewer_Setup_v1.1.3.exe](HiViewer_Setup_v1.1.3.exe) | ~2.6 MB | **Fix lỗi kết nối lại** |
+| **v1.2.0** (Mới nhất) | [HiViewer_Setup_v1.2.0.exe](HiViewer_Setup_v1.2.0.exe) | ~2.6 MB | **Hỗ trợ UAC/Secure Desktop** |
 
 **Yêu cầu hệ thống:**
 - Windows 10/11 (64-bit)
 - .NET 8 Runtime ([Tải tại đây](https://dotnet.microsoft.com/download/dotnet/8.0))
+- **Quyền Administrator** (để capture UAC prompts)
 
-## 🆕 Có gì mới trong v1.1.3
+## 🆕 Có gì mới trong v1.2.0
 
-### Sửa lỗi quan trọng
-- **Fix "Sai password" khi kết nối lại** - Lỗi Host không reset trạng thái sau khi Controller ngắt kết nối
-- **Thêm event PartnerDisconnected** - Phân biệt rõ disconnect từ server vs từ partner
+### Hỗ trợ UAC/Secure Desktop
+- **Chạy với quyền Admin** - Ứng dụng yêu cầu quyền Admin để capture Secure Desktop
+- **Thấy được UAC dialog** - Có thể thấy và điều khiển UAC prompts khi remote
+- **Phục hồi nhanh hơn** - Phát hiện và khôi phục nhanh hơn khi chuyển đổi desktop
 
-### Hiệu suất (từ v1.1.2)
-- 60 FPS - Mượt mà tối đa
-- Binary WebSocket - Giảm 33% dữ liệu
-- Mouse throttling - Tối ưu băng thông
-
-### Bảo mật (từ v1.1.0)
-- Chống tấn công timing attack
-- Rate limiting
-- Validate ID format
+### Lưu ý quan trọng
+Khi chạy HiViewer, Windows sẽ hiện thông báo UAC yêu cầu quyền Admin. Điều này là bình thường và cần thiết để:
+- Capture màn hình khi có UAC dialog
+- Điều khiển các ứng dụng elevated
+- Remote control đầy đủ chức năng
 
 ## 🚀 Hướng dẫn sử dụng
 
 ### Cài đặt
 
-1. Tải file `HiViewer_Setup_v1.1.3.exe`
+1. Tải file `HiViewer_Setup_v1.2.0.exe`
 2. Chạy file và làm theo hướng dẫn cài đặt
 3. Khởi động HiViewer từ Desktop hoặc Start Menu
+4. **Chấp nhận UAC prompt** khi được hỏi
 
 ### Cho phép người khác điều khiển máy bạn
 
-1. Mở HiViewer
+1. Mở HiViewer (chấp nhận UAC)
 2. Ghi nhớ **ID** và **Mật khẩu** hiển thị ở phần "Cho phép điều khiển"
 3. Gửi ID và Mật khẩu cho người muốn điều khiển máy bạn
 
@@ -73,21 +72,23 @@
 
 ## ❓ Câu hỏi thường gặp
 
+### Tại sao cần quyền Administrator?
+
+Windows có tính năng bảo mật gọi là "Secure Desktop" để cô lập UAC prompts. Chỉ các ứng dụng chạy với quyền Admin mới có thể:
+- Capture màn hình khi UAC dialog hiển thị
+- Điều khiển các ứng dụng elevated
+- Truy cập Secure Desktop
+
 ### Tại sao không kết nối được?
 
 - Kiểm tra kết nối Internet của cả 2 máy
 - Đảm bảo nhập đúng ID và Mật khẩu
 - Thử tắt tường lửa (Firewall) tạm thời
 
-### Màn hình bị đen khi điều khiển?
+### Màn hình bị đen khi có UAC?
 
-- Đảm bảo máy được điều khiển không ở chế độ Sleep
-- Thử đóng và mở lại kết nối
-
-### Bàn phím không hoạt động?
-
-- Click vào cửa sổ điều khiển từ xa để đảm bảo nó có focus
-- Thử nhấn vào màn hình remote trước khi gõ
+- Đảm bảo HiViewer được **chạy với quyền Admin**
+- Nếu vẫn đen, đợi vài giây để ứng dụng tự phục hồi
 
 ## 👨‍💻 Tác giả
 
