@@ -1,7 +1,7 @@
 # HiViewer - Phần mềm Điều khiển Máy tính Từ xa
 
 <p align="center">
-  <img src="screenshots/logo.png" alt="HiViewer Logo" width="128">
+  <img src="screenshots/hiviewer.jpg" alt="HiViewer Banner" width="100%">
 </p>
 
 **HiViewer** là phần mềm điều khiển máy tính từ xa qua Internet, tương tự TeamViewer và UltraViewer. Được phát triển hoàn toàn bằng C# .NET 8.
@@ -21,8 +21,7 @@
 
 | Phiên bản | Tải về | Kích thước | Ghi chú |
 |-----------|--------|------------|---------|
-| **v1.1.0** (Mới) | [HiViewer_Setup_v1.1.0.exe](HiViewer_Setup_v1.1.0.exe) | ~2.6 MB | Security & Stability fixes |
-| v1.0.0 | [HiViewer_Setup_v1.0.0.exe](HiViewer_Setup_v1.0.0.exe) | ~2.6 MB | Initial release |
+| **v1.1.0** (Mới nhất) | [HiViewer_Setup_v1.1.0.exe](HiViewer_Setup_v1.1.0.exe) | ~2.6 MB | Security & Stability fixes |
 
 **Yêu cầu hệ thống:**
 - Windows 10/11 (64-bit)
