@@ -17,9 +17,9 @@
 
 ## 📥 Tải về
 
-| Phiên bản | Tải về | Kích thước |
-|-----------|--------|------------|
-| v1.0.0 | [HiViewer_Setup_v1.0.0.exe](HiViewer_Setup_v1.0.0.exe) | ~2.6 MB |
+| Phiên bản | Tải về | Kích thước | Ghi chú |
+|-----------|--------|------------|---------|
+| **v1.0.1** (Mới nhất) | [HiViewer_Setup_v1.0.1.exe](HiViewer_Setup_v1.0.1.exe) | ~2.6 MB | Fix màn hình đen khi reconnect |
 
 **Yêu cầu hệ thống:**
 - Windows 10/11 (64-bit)
