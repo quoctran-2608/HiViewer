@@ -1,7 +1,7 @@
 # HiViewer - Phần mềm Điều khiển Máy tính Từ xa
 
 <p align="center">
-  <img src="screenshots/logo.png" alt="HiViewer Logo" width="128">
+  <img src="screenshots/hiviewer.jpg" alt="HiViewer Banner" width="100%">
 </p>
 
 **HiViewer** là phần mềm điều khiển máy tính từ xa qua Internet, tương tự TeamViewer và UltraViewer. Được phát triển hoàn toàn bằng C# .NET 8.
@@ -13,13 +13,14 @@
 - ⌨️ **Điều khiển bàn phím** - Gõ phím, phím tắt hoạt động đầy đủ
 - 🔒 **Bảo mật** - Mỗi phiên có ID và Password riêng
 - 🚀 **Hiệu suất cao** - Nén JPEG + Dirty Rectangles, tiết kiệm băng thông
+- 🔄 **Auto-reconnect** - Tự động kết nối lại khi mất kết nối
 - 🎨 **Giao diện đẹp** - Thiết kế hiện đại theo phong cách TeamViewer
 
 ## 📥 Tải về
 
 | Phiên bản | Tải về | Kích thước | Ghi chú |
 |-----------|--------|------------|---------|
-| **v1.0.2** (Mới nhất) | [HiViewer_Setup_v1.0.2.exe](HiViewer_Setup_v1.0.2.exe) | ~2.6 MB | Auto-reconnect + Fix lỗi kết nối |
+| **v1.0.2** (Mới nhất) | [HiViewer_Setup_v1.0.2.exe](HiViewer_Setup_v1.0.2.exe) | ~2.6 MB | Auto-reconnect + Ổn định |
 
 **Yêu cầu hệ thống:**
 - Windows 10/11 (64-bit)
@@ -53,23 +54,196 @@
   <img src="screenshots/Screenshot.png" alt="Giao diện chính" width="500">
 </p>
 
+---
+
+## 🖥️ Thiết lập Signaling Server
+
+HiViewer cần một Signaling Server để kết nối 2 máy qua Internet. Bạn có thể tự host server trên VPS hoặc Render.
+
+### Cách 1: Deploy trên VPS (Ubuntu)
+
+#### Bước 1: Cài đặt Node.js
+
+```bash
+# Cập nhật hệ thống
+sudo apt update && sudo apt upgrade -y
+
+# Cài đặt Node.js 18+
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt install -y nodejs
+
+# Kiểm tra version
+node -v
+npm -v
+```
+
+#### Bước 2: Cài đặt PM2 (Process Manager)
+
+```bash
+sudo npm install -g pm2
+```
+
+#### Bước 3: Clone và cài đặt server
+
+```bash
+# Clone repo
+cd ~
+git clone https://github.com/quoctran-2608/HiViewer_Sourcecode.git
+cd HiViewer_Sourcecode/signaling-server
+
+# Cài đặt dependencies
+npm install
+```
+
+#### Bước 4: Chạy server với PM2
+
+```bash
+# Dừng và xóa process cũ nếu có
+pm2 stop hiviewer 2>/dev/null || true
+pm2 delete hiviewer 2>/dev/null || true
+
+# Chạy server
+pm2 start server.js --name hiviewer
+
+# Lưu config để tự động chạy khi reboot
+pm2 save
+pm2 startup
+```
+
+#### Bước 5: Mở port firewall
+
+```bash
+# Mở port 8080
+sudo ufw allow 8080/tcp
+sudo ufw reload
+
+# Kiểm tra
+sudo ufw status
+```
+
+#### Các lệnh PM2 hữu ích
+
+```bash
+# Xem logs
+pm2 logs hiviewer
+
+# Xem trạng thái
+pm2 status
+
+# Restart server
+pm2 restart hiviewer
+
+# Dừng server
+pm2 stop hiviewer
+
+# Xóa server khỏi PM2
+pm2 delete hiviewer
+```
+
+#### Cập nhật server khi có phiên bản mới
+
+```bash
+cd ~/HiViewer_Sourcecode
+git pull origin main
+cd signaling-server
+npm install
+
+# Restart server
+pm2 restart hiviewer
+```
+
+---
+
+### Cách 2: Deploy trên Render (Miễn phí)
+
+#### Bước 1: Tạo tài khoản Render
+
+1. Truy cập [render.com](https://render.com)
+2. Đăng ký tài khoản (có thể dùng GitHub)
+
+#### Bước 2: Tạo Web Service
+
+1. Click **New** → **Web Service**
+2. Chọn **Build and deploy from a Git repository**
+3. Kết nối với GitHub repo: `https://github.com/quoctran-2608/HiViewer_Sourcecode`
+
+#### Bước 3: Cấu hình
+
+| Trường | Giá trị |
+|--------|---------|
+| **Name** | hiviewer-signaling |
+| **Region** | Singapore (gần VN nhất) |
+| **Branch** | main |
+| **Root Directory** | signaling-server |
+| **Runtime** | Node |
+| **Build Command** | `npm install` |
+| **Start Command** | `node server.js` |
+| **Instance Type** | Free |
+
+#### Bước 4: Cấu hình Environment
+
+1. Vào **Environment** tab
+2. Thêm biến môi trường:
+   - `PORT` = `10000` (Render tự cấp port qua biến này)
+
+#### Bước 5: Deploy
+
+1. Click **Create Web Service**
+2. Đợi deploy hoàn tất (khoảng 2-3 phút)
+3. Sau khi deploy xong, bạn sẽ có URL dạng: `https://hiviewer-signaling.onrender.com`
+
+#### Lưu ý về Render Free Tier
+
+- Server sẽ **sleep sau 15 phút không hoạt động**
+- Khi có request mới, server sẽ **tự động wake up** (mất 30-60 giây)
+- Để tránh sleep, có thể dùng UptimeRobot ping mỗi 10 phút
+
+---
+
+### Cập nhật URL Server trong HiViewer
+
+Sau khi có server URL, cập nhật trong source code:
+
+**File:** `src/HiViewer.App/MainWindow.xaml.cs`
+
+```csharp
+// VPS
+private const string ServerUrl = "ws://YOUR_VPS_IP:8080";
+
+// Hoặc Render
+private const string ServerUrl = "wss://hiviewer-signaling.onrender.com";
+```
+
+> **Lưu ý:** Render dùng `wss://` (WebSocket Secure), VPS dùng `ws://`
+
+---
+
 ## ❓ Câu hỏi thường gặp
 
 ### Tại sao không kết nối được?
 
 - Kiểm tra kết nối Internet của cả 2 máy
 - Đảm bảo nhập đúng ID và Mật khẩu
+- Kiểm tra Signaling Server đang hoạt động
 - Thử tắt tường lửa (Firewall) tạm thời
 
 ### Màn hình bị đen khi điều khiển?
 
 - Đảm bảo máy được điều khiển không ở chế độ Sleep
 - Thử đóng và mở lại kết nối
+- Khởi động lại ứng dụng HiViewer
 
 ### Bàn phím không hoạt động?
 
 - Click vào cửa sổ điều khiển từ xa để đảm bảo nó có focus
 - Thử nhấn vào màn hình remote trước khi gõ
+
+### Server báo "ID already registered"?
+
+- ID trùng với một client khác đang online
+- Khởi động lại ứng dụng để tạo ID mới
+
+---
 
 ## 👨‍💻 Tác giả
 
