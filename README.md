@@ -12,7 +12,7 @@
 - 🖱️ **Điều khiển chuột** - Di chuyển, click, cuộn hoàn toàn mượt mà
 - ⌨️ **Điều khiển bàn phím** - Gõ phím, phím tắt hoạt động đầy đủ
 - 🔒 **Bảo mật** - Mỗi phiên có ID và Password riêng, chống tấn công timing
-- 🚀 **Hiệu suất cao** - 30 FPS, nén JPEG + Dirty Rectangles
+- 🚀 **Hiệu suất cực cao** - 60 FPS, Binary WebSocket, tối ưu triệt để
 - 🔄 **Tự động kết nối lại** - Khi mất kết nối sẽ tự động thử kết nối lại
 - 🛡️ **Ổn định** - Xử lý UAC, thay đổi độ phân giải, nhiều tình huống edge case
 - 🎨 **Giao diện đẹp** - Thiết kế hiện đại theo phong cách TeamViewer
@@ -21,36 +21,36 @@
 
 | Phiên bản | Tải về | Kích thước | Ghi chú |
 |-----------|--------|------------|---------|
-| **v1.1.1** (Mới nhất) | [HiViewer_Setup_v1.1.1.exe](HiViewer_Setup_v1.1.1.exe) | ~2.6 MB | **Performance Hotfix** - Sửa lag |
+| **v1.1.2** (Mới nhất) | [HiViewer_Setup_v1.1.2.exe](HiViewer_Setup_v1.1.2.exe) | ~2.6 MB | **Ultra Performance** - Mượt nhất! |
 
 **Yêu cầu hệ thống:**
 - Windows 10/11 (64-bit)
 - .NET 8 Runtime ([Tải tại đây](https://dotnet.microsoft.com/download/dotnet/8.0))
 
-## 🆕 Có gì mới trong v1.1.1 (Performance Hotfix)
+## 🆕 Có gì mới trong v1.1.2 (Ultra Performance)
 
-### Sửa lỗi LAG nghiêm trọng
-- **Bỏ blocking lock** - Loại bỏ lock 5 giây gây nghẽn gửi frame
-- **Fire-and-forget** - Gửi frame không chờ đợi, mượt hơn nhiều
-- **Tối ưu chuột** - Chỉ dùng SetCursorPos, nhanh hơn
-- **Tăng FPS** - 30 FPS (trước là 20)
-- **Chất lượng tốt hơn** - JPEG 60% (trước là 50%)
+### Tối ưu hiệu suất triệt để
+- **60 FPS** - Mượt mà tối đa (trước là 30 FPS)
+- **Binary WebSocket** - Gửi frame dạng binary, giảm 33% dữ liệu
+- **Mouse throttling** - Giới hạn 120 updates/giây, bỏ qua di chuyển nhỏ
+- **16ms frame acquire** - Nhanh hơn 6 lần (trước là 100ms)
+- **Timeout ngắn** - 500ms thay vì 1000ms
 
 ### Bảo mật (từ v1.1.0)
 - Chống tấn công timing attack trên password
 - Giới hạn 10 lần thử kết nối/phút
 - Validate format ID (6-12 chữ số)
 
-### Ổn định (từ v1.1.0)
-- Tự động kết nối lại khi mất kết nối (tối đa 20 lần)
-- Xử lý UAC/Secure Desktop (cache frame cuối)
+### Ổn định
+- Tự động kết nối lại khi mất kết nối
+- Xử lý UAC/Secure Desktop
 - Phát hiện và xử lý thay đổi độ phân giải
 
 ## 🚀 Hướng dẫn sử dụng
 
 ### Cài đặt
 
-1. Tải file `HiViewer_Setup_v1.1.1.exe`
+1. Tải file `HiViewer_Setup_v1.1.2.exe`
 2. Chạy file và làm theo hướng dẫn cài đặt
 3. Khởi động HiViewer từ Desktop hoặc Start Menu
 
@@ -94,9 +94,9 @@
 
 ### Điều khiển bị lag?
 
-- **Đảm bảo cài v1.1.1** - phiên bản trước (v1.1.0) có lỗi gây lag
+- **Cài v1.1.2** - phiên bản mới nhất với hiệu suất tối ưu
 - Kiểm tra kết nối Internet ổn định
-- Nếu Internet chậm, có thể bị delay 
+- Delay phụ thuộc vào tốc độ mạng và khoảng cách server
 
 ## 👨‍💻 Tác giả
 
