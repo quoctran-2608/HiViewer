@@ -21,16 +21,22 @@
 
 | Phiên bản | Tải về | Kích thước | Ghi chú |
 |-----------|--------|------------|---------|
-| **v1.2.1** (Mới nhất) | [HiViewer_Setup_v1.2.1.exe](HiViewer_Setup_v1.2.1.exe) | ~2.6 MB | **Chất lượng cao + Adaptive** |
+| **v1.2.2** (Mới nhất) | [HiViewer_Setup_v1.2.2.exe](HiViewer_Setup_v1.2.2.exe) | ~2.6 MB | **Kết nối nhanh + Chất lượng cao** |
 
 **Yêu cầu hệ thống:**
 - Windows 10/11 (64-bit)
 - .NET 8 Runtime ([Tải tại đây](https://dotnet.microsoft.com/download/dotnet/8.0))
 - **Quyền Administrator** (để capture UAC prompts)
 
-## 🆕 Có gì mới trong v1.2.1
+## 🆕 Có gì mới trong v1.2.2
 
-### Chất lượng hình ảnh cải thiện
+### Kết nối nhanh hơn
+- **Bỏ delay STUN** - Gửi answer ngay lập tức
+- **Pre-initialize capture** - Capture sẵn sàng khi app khởi động
+- **Frame đầu tiên tức thì** - GDI capture ngay khi connect
+- **Trước: 2-5 giây, Sau: ~100ms**
+
+### Từ v1.2.1
 - **JPEG 75%** - Sắc nét hơn nhiều (trước là 45%)
 - **Adaptive quality** - Tự động điều chỉnh 40-85% theo bandwidth
 - **Target ~80KB/frame** - Cân bằng chất lượng và băng thông
