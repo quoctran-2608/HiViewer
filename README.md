@@ -21,36 +21,33 @@
 
 | Phiên bản | Tải về | Kích thước | Ghi chú |
 |-----------|--------|------------|---------|
-| **v1.1.2** (Mới nhất) | [HiViewer_Setup_v1.1.2.exe](HiViewer_Setup_v1.1.2.exe) | ~2.6 MB | **Ultra Performance** - Mượt nhất! |
+| **v1.1.3** (Mới nhất) | [HiViewer_Setup_v1.1.3.exe](HiViewer_Setup_v1.1.3.exe) | ~2.6 MB | **Fix lỗi kết nối lại** |
 
 **Yêu cầu hệ thống:**
 - Windows 10/11 (64-bit)
 - .NET 8 Runtime ([Tải tại đây](https://dotnet.microsoft.com/download/dotnet/8.0))
 
-## 🆕 Có gì mới trong v1.1.2 (Ultra Performance)
+## 🆕 Có gì mới trong v1.1.3
 
-### Tối ưu hiệu suất triệt để
-- **60 FPS** - Mượt mà tối đa (trước là 30 FPS)
-- **Binary WebSocket** - Gửi frame dạng binary, giảm 33% dữ liệu
-- **Mouse throttling** - Giới hạn 120 updates/giây, bỏ qua di chuyển nhỏ
-- **16ms frame acquire** - Nhanh hơn 6 lần (trước là 100ms)
-- **Timeout ngắn** - 500ms thay vì 1000ms
+### Sửa lỗi quan trọng
+- **Fix "Sai password" khi kết nối lại** - Lỗi Host không reset trạng thái sau khi Controller ngắt kết nối
+- **Thêm event PartnerDisconnected** - Phân biệt rõ disconnect từ server vs từ partner
+
+### Hiệu suất (từ v1.1.2)
+- 60 FPS - Mượt mà tối đa
+- Binary WebSocket - Giảm 33% dữ liệu
+- Mouse throttling - Tối ưu băng thông
 
 ### Bảo mật (từ v1.1.0)
-- Chống tấn công timing attack trên password
-- Giới hạn 10 lần thử kết nối/phút
-- Validate format ID (6-12 chữ số)
-
-### Ổn định
-- Tự động kết nối lại khi mất kết nối
-- Xử lý UAC/Secure Desktop
-- Phát hiện và xử lý thay đổi độ phân giải
+- Chống tấn công timing attack
+- Rate limiting
+- Validate ID format
 
 ## 🚀 Hướng dẫn sử dụng
 
 ### Cài đặt
 
-1. Tải file `HiViewer_Setup_v1.1.2.exe`
+1. Tải file `HiViewer_Setup_v1.1.3.exe`
 2. Chạy file và làm theo hướng dẫn cài đặt
 3. Khởi động HiViewer từ Desktop hoặc Start Menu
 
@@ -91,12 +88,6 @@
 
 - Click vào cửa sổ điều khiển từ xa để đảm bảo nó có focus
 - Thử nhấn vào màn hình remote trước khi gõ
-
-### Điều khiển bị lag?
-
-- **Cài v1.1.2** - phiên bản mới nhất với hiệu suất tối ưu
-- Kiểm tra kết nối Internet ổn định
-- Delay phụ thuộc vào tốc độ mạng và khoảng cách server
 
 ## 👨‍💻 Tác giả
 
