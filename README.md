@@ -19,7 +19,7 @@
 
 | Phiên bản | Tải về | Kích thước | Ghi chú |
 |-----------|--------|------------|---------|
-| **v1.0.1** (Mới nhất) | [HiViewer_Setup_v1.0.1.exe](HiViewer_Setup_v1.0.1.exe) | ~2.6 MB | Fix màn hình đen khi reconnect |
+| **v1.0.2** (Mới nhất) | [HiViewer_Setup_v1.0.2.exe](HiViewer_Setup_v1.0.2.exe) | ~2.6 MB | Auto-reconnect + Fix lỗi kết nối |
 
 **Yêu cầu hệ thống:**
 - Windows 10/11 (64-bit)
@@ -29,7 +29,7 @@
 
 ### Cài đặt
 
-1. Tải file `HiViewer_Setup_v1.0.0.exe`
+1. Tải file `HiViewer_Setup_v1.0.2.exe`
 2. Chạy file và làm theo hướng dẫn cài đặt
 3. Khởi động HiViewer từ Desktop hoặc Start Menu
 
