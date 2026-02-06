@@ -11,25 +11,46 @@
 - 🖥️ **Điều khiển từ xa qua Internet** - Kết nối và điều khiển máy tính từ bất kỳ đâu
 - 🖱️ **Điều khiển chuột** - Di chuyển, click, cuộn hoàn toàn mượt mà
 - ⌨️ **Điều khiển bàn phím** - Gõ phím, phím tắt hoạt động đầy đủ
-- 🔒 **Bảo mật** - Mỗi phiên có ID và Password riêng
+- 🔒 **Bảo mật** - Mỗi phiên có ID và Password riêng, chống tấn công timing
 - 🚀 **Hiệu suất cao** - Nén JPEG + Dirty Rectangles, tiết kiệm băng thông
+- 🔄 **Tự động kết nối lại** - Khi mất kết nối sẽ tự động thử kết nối lại
+- 🛡️ **Ổn định** - Xử lý UAC, thay đổi độ phân giải, nhiều tình huống edge case
 - 🎨 **Giao diện đẹp** - Thiết kế hiện đại theo phong cách TeamViewer
 
 ## 📥 Tải về
 
-| Phiên bản | Tải về | Kích thước |
-|-----------|--------|------------|
-| v1.0.0 | [HiViewer_Setup_v1.0.0.exe](HiViewer_Setup_v1.0.0.exe) | ~2.6 MB |
+| Phiên bản | Tải về | Kích thước | Ghi chú |
+|-----------|--------|------------|---------|
+| **v1.1.0** (Mới) | [HiViewer_Setup_v1.1.0.exe](HiViewer_Setup_v1.1.0.exe) | ~2.6 MB | Security & Stability fixes |
+| v1.0.0 | [HiViewer_Setup_v1.0.0.exe](HiViewer_Setup_v1.0.0.exe) | ~2.6 MB | Initial release |
 
 **Yêu cầu hệ thống:**
 - Windows 10/11 (64-bit)
 - .NET 8 Runtime ([Tải tại đây](https://dotnet.microsoft.com/download/dotnet/8.0))
 
+## 🆕 Có gì mới trong v1.1.0
+
+### Bảo mật
+- Chống tấn công timing attack trên password
+- Giới hạn 10 lần thử kết nối/phút
+- Validate format ID (6-12 chữ số)
+
+### Ổn định
+- Tự động kết nối lại khi mất kết nối (tối đa 20 lần)
+- Heartbeat 10 giây để phát hiện mất kết nối sớm
+- Xử lý UAC/Secure Desktop (cache frame cuối)
+- Phát hiện và xử lý thay đổi độ phân giải
+
+### Hiệu suất
+- Giảm buffer size (64KB) để tiết kiệm RAM
+- Timeout gửi dữ liệu (5s) tránh deadlock
+- Tối ưu điều khiển chuột
+
 ## 🚀 Hướng dẫn sử dụng
 
 ### Cài đặt
 
-1. Tải file `HiViewer_Setup_v1.0.0.exe`
+1. Tải file `HiViewer_Setup_v1.1.0.exe`
 2. Chạy file và làm theo hướng dẫn cài đặt
 3. Khởi động HiViewer từ Desktop hoặc Start Menu
 
@@ -65,11 +86,17 @@
 
 - Đảm bảo máy được điều khiển không ở chế độ Sleep
 - Thử đóng và mở lại kết nối
+- **v1.1.0**: Đã xử lý trường hợp UAC xuất hiện
 
 ### Bàn phím không hoạt động?
 
 - Click vào cửa sổ điều khiển từ xa để đảm bảo nó có focus
 - Thử nhấn vào màn hình remote trước khi gõ
+
+### Kết nối bị mất sau một thời gian?
+
+- **v1.1.0**: Đã thêm heartbeat và tự động kết nối lại
+- Kiểm tra kết nối Internet ổn định
 
 ## 👨‍💻 Tác giả
 
