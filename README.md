@@ -20,7 +20,7 @@
 
 | Phiên bản | Tải về | Kích thước | Ghi chú |
 |-----------|--------|------------|---------|
-| **v1.0.3** (Mới nhất) | [HiViewer_Setup_v1.0.3.exe](HiViewer_Setup_v1.0.3.exe) | ~2.6 MB | Fix màn hình đen khi screen off |
+| **v1.0.4** (Mới nhất) | [HiViewer_Setup_v1.0.4.exe](HiViewer_Setup_v1.0.4.exe) | ~2.6 MB | Fix chớp đen sau khi wake screen |
 
 **Yêu cầu hệ thống:**
 - Windows 10/11 (64-bit)
