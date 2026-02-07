@@ -20,7 +20,7 @@
 
 | Phiên bản | Tải về | Kích thước | Ghi chú |
 |-----------|--------|------------|---------|
-| **v1.0.7** (Mới nhất) | [HiViewer_Setup_v1.0.7.exe](HiViewer_Setup_v1.0.7.exe) | ~2.6 MB | ID cố định theo máy |
+| **v1.0.8** (Mới nhất) | [HiViewer_Setup_v1.0.8.exe](HiViewer_Setup_v1.0.8.exe) | ~2.6 MB | Fix lag khi host đang upload |
 
 **Yêu cầu hệ thống:**
 - Windows 10/11 (64-bit)
