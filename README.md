@@ -20,7 +20,7 @@
 
 | Phiên bản | Tải về | Kích thước | Ghi chú |
 |-----------|--------|------------|---------|
-| **v1.0.2** (Mới nhất) | [HiViewer_Setup_v1.0.2.exe](HiViewer_Setup_v1.0.2.exe) | ~2.6 MB | Auto-reconnect + Ổn định |
+| **v1.0.3** (Mới nhất) | [HiViewer_Setup_v1.0.3.exe](HiViewer_Setup_v1.0.3.exe) | ~2.6 MB | Fix màn hình đen khi screen off |
 
 **Yêu cầu hệ thống:**
 - Windows 10/11 (64-bit)
@@ -30,7 +30,7 @@
 
 ### Cài đặt
 
-1. Tải file `HiViewer_Setup_v1.0.2.exe`
+1. Tải file `HiViewer_Setup_v1.0.3.exe`
 2. Chạy file và làm theo hướng dẫn cài đặt
 3. Khởi động HiViewer từ Desktop hoặc Start Menu
 
