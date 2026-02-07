@@ -20,7 +20,7 @@
 
 | Phiên bản | Tải về | Kích thước | Ghi chú |
 |-----------|--------|------------|---------|
-| **v1.0.5** (Mới nhất) | [HiViewer_Setup_v1.0.5.exe](HiViewer_Setup_v1.0.5.exe) | ~2.6 MB | Fix mất kết nối sau vài tiếng + ID đẹp hơn |
+| **v1.0.6** (Mới nhất) | [HiViewer_Setup_v1.0.6.exe](HiViewer_Setup_v1.0.6.exe) | ~2.6 MB | Cải thiện UX đóng cửa sổ remote |
 
 **Yêu cầu hệ thống:**
 - Windows 10/11 (64-bit)
